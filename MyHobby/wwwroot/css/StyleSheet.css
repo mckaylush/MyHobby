@@ -1,0 +1,29 @@
+﻿footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0; /* Adjust the top and bottom padding as needed */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding-bottom: 150px;
+    padding-top: 100px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0; /* Adjust the top and bottom padding as needed */
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+h1 {
+    font-size: 30px;
+    text-align: center
+}
+

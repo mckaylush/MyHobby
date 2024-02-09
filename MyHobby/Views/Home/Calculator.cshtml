@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink("Go Home", "Index", "Home")
+
+<div class="calculator" style="text-align: center;">
+    <h2>Fun Estimator </h2>
+    <div>
+        <label for="hours">Number of Hours Needed:</label>
+        <input type="number" id="hours" min="0">
+    </div>
+    <div>
+        <label for="hourlyRate">Hourly Rate ($50/hr):</label>
+        <input type="text" id="hourlyRate" value="$50" readonly>
+    </div>
+    <button id="calculate-btn" style="margin-top: 10px;">Calculate Total</button>
+    <div>
+        <label for="total">Total:</label>
+        <input type="text" id="total" readonly>
+    </div>
+</div>
+
+<script>
+    document.getElementById("calculate-btn").addEventListener("click", function () {
+        var hours = parseFloat(document.getElementById("hours").value);
+        var hourlyRate = 50;
+
+        if (isNaN(hours) || hours < 0) {
+            alert("Please enter a valid number of hours.");
+            return;
+        }
+
+        var total;
+        if (hours < 1) {
+            total = hourlyRate;
+        } else {
+            total = hours * hourlyRate;
+        }
+
+        document.getElementById("total").value = "$" + total.toFixed(2);
+    });
+
+    // Allow only numbers and one decimal point in the hours input
+    document.getElementById("hours").addEventListener("keypress", function (event) {
+        var key = event.key;
+        if (isNaN(key) && key !== "." && key !== "Backspace") {
+            event.preventDefault();
+        }
+        if (key === "." && event.target.value.includes(".")) {
+            event.preventDefault();
+        }
+    });
+</script>
